@@ -10,6 +10,7 @@ import jpabook.jpashop.repository.order.query.OrderFlatDto;
 import jpabook.jpashop.repository.order.query.OrderItemQueryDto;
 import jpabook.jpashop.repository.order.query.OrderQueryDto;
 import jpabook.jpashop.repository.order.query.OrderQueryRepository;
+import jpabook.jpashop.service.query.OrderQueryService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -85,6 +86,13 @@ public class OrderApiController {
                 .collect(toList());
         return collect;
     }
+
+    // OVIS 분리용
+//    private final OrderQueryService orderQueryService;
+//    @GetMapping("/api/v3/orders")
+//    public List<jpabook.jpashop.service.query.OrderDto> ordersV3() {
+//        return orderQueryService.orderV3();
+//    }
 
     @GetMapping("/api/v3.1/orders")
     public List<OrderDto> ordersV3_page(
